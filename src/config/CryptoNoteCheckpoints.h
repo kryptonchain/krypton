@@ -1,4 +1,5 @@
 // Copyright (c) 2012-2017, The CryptoNote developers, The Bytecoin developers
+// Copyright (c) 2019, The KryptonChain Developers
 //
 // This file is part of Bytecoin.
 //
@@ -20,11 +21,13 @@
 #include <cstddef>
 #include <initializer_list>
 
-namespace CryptoNote {
-struct CheckpointData {
-  uint32_t index;
-  const char* blockId;
-};
+namespace CryptoNote
+{
+    struct CheckpointData
+    {
+        uint32_t index;
+        const char *blockId;
+    };
 
 const std::initializer_list<CheckpointData> CHECKPOINTS = { };
 
