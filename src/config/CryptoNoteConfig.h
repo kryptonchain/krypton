@@ -197,7 +197,7 @@ namespace CryptoNote
 
         const uint32_t UPGRADE_HEIGHT_V4 = 3; // Upgrade height for CN-Lite Variant 1 switch.
 
-        const uint32_t UPGRADE_HEIGHT_V5 = 1000; // Upgrade height switch version / official launch
+        const uint32_t UPGRADE_HEIGHT_V5 = 5000; // Upgrade height switch version / official launch
 
         const uint32_t UPGRADE_HEIGHT_V6 = 440000; // Upgrade height for Chukwa switch.
 
@@ -217,7 +217,7 @@ namespace CryptoNote
 
         /* Block heights we are going to have hard forks at */
         const uint64_t FORK_HEIGHTS[] = {
-            1000,    // 0
+            5000,    // 0
             440000,  // 1
             880000,  // 2
             1320000, // 3
