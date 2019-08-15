@@ -102,7 +102,7 @@ namespace CryptoNote
         const uint64_t MAXIMUM_MIXIN_V3 = 6;
 
         /* The heights to activate the mixin limits at */
-        const uint32_t MIXIN_LIMITS_V1_HEIGHT = 1000;
+        const uint32_t MIXIN_LIMITS_V1_HEIGHT = 5000;
 
         const uint32_t MIXIN_LIMITS_V2_HEIGHT = 440000;
 
