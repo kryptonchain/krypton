@@ -91,40 +91,40 @@ namespace CryptoNote
         /* This section defines our minimum and maximum mixin counts required for transactions */
         const uint64_t MINIMUM_MIXIN_V1 = 0;
 
-        const uint64_t MAXIMUM_MIXIN_V1 = 3;
+        const uint64_t MAXIMUM_MIXIN_V1 = 6;
 
-        const uint64_t MINIMUM_MIXIN_V2 = 0;
+        const uint64_t MINIMUM_MIXIN_V2 = 1;
 
-        const uint64_t MAXIMUM_MIXIN_V2 = 3;
+        const uint64_t MAXIMUM_MIXIN_V2 = 6;
 
-        const uint64_t MINIMUM_MIXIN_V3 = 3;
+        const uint64_t MINIMUM_MIXIN_V3 = 2;
 
-        const uint64_t MAXIMUM_MIXIN_V3 = 3;
+        const uint64_t MAXIMUM_MIXIN_V3 = 6;
 
         /* The heights to activate the mixin limits at */
-        const uint32_t MIXIN_LIMITS_V1_HEIGHT = 440000;
+        const uint32_t MIXIN_LIMITS_V1_HEIGHT = 1000;
 
-        const uint32_t MIXIN_LIMITS_V2_HEIGHT = 880000;
+        const uint32_t MIXIN_LIMITS_V2_HEIGHT = 440000;
 
-        const uint32_t MIXIN_LIMITS_V3_HEIGHT = 1320000;
+        const uint32_t MIXIN_LIMITS_V3_HEIGHT = 880000;
 
         /* The mixin to use by default with zedwallet and krypton-cli */
         /* DEFAULT_MIXIN_V0 is the mixin used before MIXIN_LIMITS_V1_HEIGHT is started */
         const uint64_t DEFAULT_MIXIN_V0 = 3;
 
-        const uint64_t DEFAULT_MIXIN_V1 = MAXIMUM_MIXIN_V1;
+        const uint64_t DEFAULT_MIXIN_V1 = MINIMUM_MIXIN_V1;
 
-        const uint64_t DEFAULT_MIXIN_V2 = MAXIMUM_MIXIN_V2;
+        const uint64_t DEFAULT_MIXIN_V2 = MINIMUM_MIXIN_V2;
 
-        const uint64_t DEFAULT_MIXIN_V3 = MAXIMUM_MIXIN_V3;
+        const uint64_t DEFAULT_MIXIN_V3 = MINIMUM_MIXIN_V3;
 
         const uint64_t DEFAULT_DUST_THRESHOLD = UINT64_C(10);
 
         const uint64_t DEFAULT_DUST_THRESHOLD_V2 = UINT64_C(0);
 
-        const uint32_t DUST_THRESHOLD_V2_HEIGHT = MIXIN_LIMITS_V2_HEIGHT;
+        const uint32_t DUST_THRESHOLD_V2_HEIGHT = MIXIN_LIMITS_V1_HEIGHT;
 
-        const uint32_t FUSION_DUST_THRESHOLD_HEIGHT_V2 = 800000;
+        const uint32_t FUSION_DUST_THRESHOLD_HEIGHT_V2 = MIXIN_LIMITS_V1_HEIGHT;
 
         const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY = 24 * 60 * 60 / DIFFICULTY_TARGET;
 
@@ -165,11 +165,11 @@ namespace CryptoNote
         /* For new projects forked from this code base, the values immediately below
            should be changed to 0 to prevent issues with transaction processing
            and other possible unexpected behavior */
-        const uint64_t TRANSACTION_SIGNATURE_COUNT_VALIDATION_HEIGHT = 0;
+        const uint64_t TRANSACTION_SIGNATURE_COUNT_VALIDATION_HEIGHT = 1;
 
-        const uint64_t BLOCK_BLOB_SHUFFLE_CHECK_HEIGHT = 0;
+        const uint64_t BLOCK_BLOB_SHUFFLE_CHECK_HEIGHT = 1;
 
-        const uint64_t TRANSACTION_INPUT_BLOCKTIME_VALIDATION_HEIGHT = 0;
+        const uint64_t TRANSACTION_INPUT_BLOCKTIME_VALIDATION_HEIGHT = 1;
 
         /* This describes how many blocks of "wiggle" room transactions have regarding
            when the outputs can be spent based on a reasonable belief that the outputs
