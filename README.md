@@ -153,7 +153,7 @@ The binaries will be in the `src/Release` folder when you are complete.
 
 - `cd src`
 - `cd Release`
-- `Kryptond.exe --version`
+- `kryptond.exe --version`
 
 #### Thanks
 Cryptonote Developers, Bytecoin Developers, Monero Developers, Forknote Project, TurtleCoin Community, KryptoChain Developers
