@@ -162,6 +162,17 @@ namespace CryptoNote
 
         const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT = 1300000;
 
+        /* This is enforced on the daemon side. An output > 88 million causes
+         * an invalid block. */
+        const uint64_t MAX_OUTPUT_SIZE_NODE   = 88'000'000'000'000;
+
+        /* 1 million ZOD */
+        /* This is enforced on the client side. An output > 1 million will not
+         * be created in a transaction */
+        const uint64_t MAX_OUTPUT_SIZE_CLIENT = 1'000'000'000'000;
+
+        const uint64_t MAX_OUTPUT_SIZE_HEIGHT = 2000000;
+
         /* For new projects forked from this code base, the values immediately below
            should be changed to 0 to prevent issues with transaction processing
            and other possible unexpected behavior */
@@ -202,12 +213,6 @@ namespace CryptoNote
         const uint32_t UPGRADE_HEIGHT_V6 = 440000; // Upgrade height for Chukwa switch.
 
         const uint32_t UPGRADE_HEIGHT_CURRENT = UPGRADE_HEIGHT_V6;
-
-        /* This value is here to handle the difficult reset needed for the PoW upgrade
-           at block major version V6 */
-        const uint64_t DIFFICULTY_RESET_HEIGHT_V1 = UPGRADE_HEIGHT_V6;
-        const float DIFFICULTY_RESET_MULTIPLIER_V1 = 0.1;
-        const uint64_t DIFFICULTY_RESET_WINDOW_V1 = DIFFICULTY_BLOCKS_COUNT_V3;
 
         const unsigned UPGRADE_VOTING_THRESHOLD = 90; // percent
         const uint32_t UPGRADE_VOTING_WINDOW = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks
@@ -323,8 +328,8 @@ namespace CryptoNote
     const size_t P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT = 5000; // 5 seconds
     const char P2P_STAT_TRUSTED_PUB_KEY[] = "";
 
-    const uint64_t DATABASE_WRITE_BUFFER_MB_DEFAULT_SIZE = 1024; // 1 GB
-    const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE = 1024; // 1 GB
+    const uint64_t DATABASE_WRITE_BUFFER_MB_DEFAULT_SIZE = 256; // 256 MB
+    const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE = 128; // 128 MB
     const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES = 500; // 500 files
     const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT = 10; // 10 DB threads
 

@@ -2,9 +2,9 @@
 
 #### Build Optimization
 
-The CMake build system will, by default, create optimized *native* builds for your particular system type when you build the software. Using this method, the binaries created provide a better experience and all together faster performance.
+The CMake build system will, by default, create optimized _native_ builds for your particular system type when you build the software. Using this method, the binaries created provide a better experience and all together faster performance.
 
-However, if you wish to create *portable* binaries that can be shared between systems, specify `-DARCH=default` in your CMake arguments during the build process. Note that *portable* binaries will have a noticable difference in performance than *native* binaries. For this reason, it is always best to build for your particular system if possible.
+However, if you wish to create _portable_ binaries that can be shared between systems, specify `-DARCH=default` in your CMake arguments during the build process. Note that _portable_ binaries will have a noticable difference in performance than _native_ binaries. For this reason, it is always best to build for your particular system if possible.
 
 #### Linux
 
@@ -46,27 +46,30 @@ The binaries will be in the `src` folder when you are complete.
 
 You need to modify the below command for your version of ubuntu - see https://apt.llvm.org/
 
-* Ubuntu 14.04 (Trusty)
-- `sudo add-apt-repository "deb https://apt.llvm.org/trusty/ llvm-toolchain-trusty 6.0 main"`
+- Ubuntu 14.04 (Trusty)
 
-* Ubuntu 16.04 (Xenial)
-- `sudo add-apt-repository "deb https://apt.llvm.org/xenial/ llvm-toolchain-xenial 6.0 main"`
+* `sudo add-apt-repository "deb https://apt.llvm.org/trusty/ llvm-toolchain-trusty 6.0 main"`
 
-* Ubuntu 18.04 (Bionic)
-- `sudo add-apt-repository "deb https://apt.llvm.org/bionic/ llvm-toolchain-bionic 6.0 main"`
+- Ubuntu 16.04 (Xenial)
 
-- `sudo apt-get update`
-- `sudo apt-get install aptitude -y`
-- `sudo aptitude install -y -o Aptitude::ProblemResolver::SolutionCost='100*canceled-actions,200*removals' build-essential clang-6.0 libstdc++-7-dev git libboost-all-dev python-pip libssl-dev`
-- `sudo pip install cmake`
-- `export CC=clang-6.0`
-- `export CXX=clang++-6.0`
-- `git clone -b krypton_master --single-branch https://github.com/kryptonchain/krypton`
-- `cd krypton`
-- `mkdir build`
-- `cd build`
-- `cmake ..`
-- `make`
+* `sudo add-apt-repository "deb https://apt.llvm.org/xenial/ llvm-toolchain-xenial 6.0 main"`
+
+- Ubuntu 18.04 (Bionic)
+
+* `sudo add-apt-repository "deb https://apt.llvm.org/bionic/ llvm-toolchain-bionic 6.0 main"`
+
+* `sudo apt-get update`
+* `sudo apt-get install aptitude -y`
+* `sudo aptitude install -y -o Aptitude::ProblemResolver::SolutionCost='100*canceled-actions,200*removals' build-essential clang-6.0 libstdc++-7-dev git libboost-all-dev python-pip libssl-dev`
+* `sudo pip install cmake`
+* `export CC=clang-6.0`
+* `export CXX=clang++-6.0`
+* `git clone -b krypton_master --single-branch https://github.com/kryptonchain/krypton`
+* `cd krypton`
+* `mkdir build`
+* `cd build`
+* `cmake ..`
+* `make`
 
 The binaries will be in the `src` folder when you are complete.
 
@@ -101,10 +104,12 @@ The binaries will be in the `src` folder when you are complete.
 ##### Building
 
 - `which brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- `brew install --force cmake boost llvm openssl`
-- `export CC=/usr/local/opt/llvm/bin/clang`
-- `export CXX=/usr/local/opt/llvm/bin/clang++`
-- `git clone -b krypton_master --single-branch https://github.com/kryptonchain/krypton`
+- `brew install --force cmake boost llvm@8 openssl`
+- `brew link --force llvm@8`
+- `ln -s /usr/local/opt/llvm@8 /usr/local/opt/llvm`
+- `export CC=/usr/local/opt/llvm@8/bin/clang`
+- `export CXX=/usr/local/opt/llvm@8/bin/clang++`
+- `git clone -b master --single-branch https://github.com/kryptonchain/krypton`
 - `cd krypton`
 - `mkdir build`
 - `cd build`
@@ -127,13 +132,14 @@ You can build for 32-bit or 64-bit Windows. **If you're not sure, pick 64-bit.**
 - Install Boost (1.69 works the latest is 1.70 and doesn't work). Select the appropriate version for your system:
   - [Boost 64-bit](https://bintray.com/boostorg/release/download_file?file_path=1.69.0%2Fbinaries%2Fboost_1_69_0-msvc-14.1-64.exe)
   - [Boost 32-bit](https://bintray.com/boostorg/release/download_file?file_path=1.69.0%2Fbinaries%2Fboost_1_69_0-msvc-14.1-32.exe)
-- Install the latest full version of OpenSSL (currently OpenSSL 1.1.1c). Select the appropriate version for your system:
-  - [OpenSSL 64-bit](https://slproweb.com/download/Win64OpenSSL-1_1_1c.exe)
-  - [OpenSSL 32-bit](https://slproweb.com/download/Win32OpenSSL-1_1_1c.exe)
+- Install the latest full LTS version of OpenSSL (currently OpenSSL 1.1.0L). Select the appropriate version for your system:
+  - [OpenSSL 64-bit](https://slproweb.com/download/Win64OpenSSL-1_1_0L.exe)
+  - [OpenSSL 32-bit](https://slproweb.com/download/Win32OpenSSL-1_1_0L.exe)
 
 ##### Building
 
 For 64-bit:
+
 - From the start menu, open 'x64 Native Tools Command Prompt for VS 2019'.
 - `cd <your_krypton_directory>`
 - `mkdir build`
@@ -142,12 +148,13 @@ For 64-bit:
 - `MSBuild Krypton.sln /p:Configuration=Release /m` or `MSBuild src\cli.vcxproj /p:Configuration=Release /m`
 
 For 32-bit:
+
 - From the start menu, open 'x86 Native Tools Command Prompt for VS 2019'.
 - `cd <your_krypton_directory>`
 - `mkdir build`
 - `cd build`
 - `cmake -G "Visual Studio 16 2019" -A Win32 .. -DBOOST_ROOT=C:/local/boost_1_69_0`
-- `MSBuild Krypton.sln /p:Configuration=Release /p:Platform=Win32 /m` 
+- `MSBuild Krypton.sln /p:Configuration=Release /p:Platform=Win32 /m`
 
 The binaries will be in the `src/Release` folder when you are complete.
 
@@ -156,6 +163,7 @@ The binaries will be in the `src/Release` folder when you are complete.
 - `kryptond.exe --version`
 
 #### Thanks
+
 Cryptonote Developers, Bytecoin Developers, Monero Developers, Forknote Project, TurtleCoin Community, KryptoChain Developers
 
 ### Copypasta for license when editing files
