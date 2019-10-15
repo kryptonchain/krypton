@@ -123,7 +123,7 @@ namespace CryptoNote
                 for (const auto &cors_domain : obj->getCorsDomains())
                 {
                     response.addHeader("Access-Control-Allow-Origin", cors_domain);
-                    response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                    response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, User-Agent");
                     response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
                 }
                 response.addHeader("Content-Type", "application/json");
@@ -243,7 +243,7 @@ namespace CryptoNote
         for (const auto &cors_domain : m_cors_domains)
         {
             response.addHeader("Access-Control-Allow-Origin", cors_domain);
-            response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            response.addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, User-Agent");
             response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
         }
         response.addHeader("Content-Type", "application/json");
